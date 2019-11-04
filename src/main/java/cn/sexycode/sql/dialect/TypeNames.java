@@ -2,7 +2,7 @@ package cn.sexycode.sql.dialect;
 
 
 import cn.sexycode.sql.mapping.MappingException;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -94,9 +94,9 @@ public final class TypeNames {
     }
 
     private static String replace(String type, long size, int precision, int scale) {
-        type = StringHelper.replaceOnce(type, "$s", Integer.toString(scale));
-        type = StringHelper.replaceOnce(type, "$l", Long.toString(size));
-        return StringHelper.replaceOnce(type, "$p", Integer.toString(precision));
+        type = StringUtils.replaceOnce(type, "$s", Integer.toString(scale));
+        type = StringUtils.replaceOnce(type, "$l", Long.toString(size));
+        return StringUtils.replaceOnce(type, "$p", Integer.toString(precision));
     }
 
     /**

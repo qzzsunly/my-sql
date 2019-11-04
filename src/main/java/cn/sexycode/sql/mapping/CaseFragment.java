@@ -1,6 +1,6 @@
 package cn.sexycode.sql.mapping;
 
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,7 +26,7 @@ public abstract class CaseFragment {
 	}
 
 	public CaseFragment addWhenColumnNotNull(String alias, String columnName, String value) {
-		cases.put( StringHelper.qualify( alias, columnName ), value );
+		cases.put( StringUtils.qualify( alias, columnName ), value );
 		return this;
 	}
 }

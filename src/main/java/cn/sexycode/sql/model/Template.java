@@ -7,7 +7,7 @@ import cn.sexycode.sql.mapping.ordering.antlr.ColumnMapper;
 import cn.sexycode.sql.mapping.ordering.antlr.OrderByAliasResolver;
 import cn.sexycode.sql.mapping.ordering.antlr.OrderByTranslation;
 import cn.sexycode.sql.mapping.ordering.antlr.SqlValueReference;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.*;
 
@@ -115,7 +115,7 @@ public final class Template {
 //
 //		String symbols = new StringBuilder()
 //				//.append( "=><!+-*/()',|&`" )
-//				.append( StringHelper.WHITESPACE )
+//				.append( StringUtils.WHITESPACE )
 //				.append( dialect.openQuote() )
 //				.append( dialect.closeQuote() )
 //				.toString();
@@ -334,7 +334,7 @@ public final class Template {
 //
 //		String symbols = new StringBuilder()
 //				.append( "=><!+-*/()',|&`" )
-//				.append( StringHelper.WHITESPACE )
+//				.append( StringUtils.WHITESPACE )
 //				.append( dialect.openQuote() )
 //				.append( dialect.closeQuote() )
 //				.toString();

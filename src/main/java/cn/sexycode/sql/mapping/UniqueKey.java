@@ -2,7 +2,7 @@ package cn.sexycode.sql.mapping;
 
 import cn.sexycode.sql.dialect.Dialect;
 import cn.sexycode.sql.type.Mapping;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +40,7 @@ public class UniqueKey extends Constraint {
 
     public void addColumn(Column column, String order) {
         addColumn(column);
-        if (StringHelper.isNotEmpty(order)) {
+        if (StringUtils.isNotEmpty(order)) {
             columnOrderMap.put(column, order);
         }
     }

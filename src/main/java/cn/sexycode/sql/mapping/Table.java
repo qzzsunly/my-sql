@@ -5,7 +5,7 @@ import cn.sexycode.sql.model.Identifier;
 import cn.sexycode.sql.model.Namespace;
 import cn.sexycode.sql.model.QualifiedTableName;
 import cn.sexycode.sql.type.Mapping;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.io.Serializable;
 import java.util.*;
@@ -639,9 +639,9 @@ public class Table implements Serializable, Exportable {
         @Override
         public String toString() {
             return "ForeignKeyKey{" +
-                    "columns=" + StringHelper.join(",", columns) +
+                    "columns=" + StringUtils.join(",", columns) +
                     ", referencedClassName='" + referencedClassName + '\'' +
-                    ", referencedColumns=" + StringHelper.join(",", referencedColumns) +
+                    ", referencedColumns=" + StringUtils.join(",", referencedColumns) +
                     '}';
         }
     }

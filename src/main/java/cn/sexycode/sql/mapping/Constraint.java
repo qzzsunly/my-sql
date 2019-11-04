@@ -2,7 +2,7 @@ package cn.sexycode.sql.mapping;
 
 import cn.sexycode.sql.dialect.Dialect;
 import cn.sexycode.sql.type.Mapping;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -168,7 +168,7 @@ public abstract class Constraint implements Serializable {
             // If that's the case, hasAlterTable() will be true, but getAddForeignKeyConstraintString will return
             // empty string.  Prevent blank "alter table" statements.
             String constraintString = sqlConstraintString(dialect, getName(), defaultCatalog, defaultSchema);
-            if (!StringHelper.isEmpty(constraintString)) {
+            if (!StringUtils.isEmpty(constraintString)) {
                 return "alter table " + getTable().getQualifiedName(dialect, defaultCatalog, defaultSchema)
                         + constraintString;
             }

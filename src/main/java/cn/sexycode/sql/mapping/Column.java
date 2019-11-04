@@ -3,7 +3,7 @@ package cn.sexycode.sql.mapping;
 import cn.sexycode.sql.dialect.Dialect;
 import cn.sexycode.sql.type.Mapping;
 import cn.sexycode.sql.type.Type;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.io.Serializable;
 import java.util.Locale;
@@ -82,7 +82,7 @@ public class Column implements Selectable, Serializable, Cloneable {
     }
 
     public void setName(String name) {
-        if (StringHelper.isNotEmpty(name)
+        if (StringUtils.isNotEmpty(name)
                 && Dialect.QUOTE.indexOf(name.charAt(0)) > -1 //TODO: deprecated, remove eventually
         ) {
             quoted = true;
@@ -105,7 +105,7 @@ public class Column implements Selectable, Serializable, Cloneable {
 
     @Override
     public String getAlias(Dialect dialect) {
-        final int lastLetter = StringHelper.lastIndexOfLetter(name);
+        final int lastLetter = StringUtils.lastIndexOfLetter(name);
         final String suffix = Integer.toString(uniqueInteger) + '_';
 
         String alias = name;

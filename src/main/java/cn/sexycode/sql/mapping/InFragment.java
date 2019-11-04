@@ -1,7 +1,7 @@
 package cn.sexycode.sql.mapping;
 
 import cn.sexycode.sql.model.Template;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,12 +43,12 @@ public class InFragment {
 	}
 
 	public InFragment setColumn(String alias, String columnName) {
-		this.columnName = StringHelper.qualify( alias, columnName );
+		this.columnName = StringUtils.qualify( alias, columnName );
 		return setColumn( this.columnName );
 	}
 
 	public InFragment setFormula(String alias, String formulaTemplate) {
-		this.columnName = StringHelper.replace( formulaTemplate, Template.TEMPLATE, alias );
+		this.columnName = StringUtils.replace( formulaTemplate, Template.TEMPLATE, alias );
 		return setColumn( this.columnName );
 	}
 

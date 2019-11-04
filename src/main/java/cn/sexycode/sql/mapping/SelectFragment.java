@@ -1,7 +1,7 @@
 package cn.sexycode.sql.mapping;
 
 import cn.sexycode.sql.model.Template;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.*;
 
@@ -64,7 +64,7 @@ public class SelectFragment {
 	}
 
 	public SelectFragment addColumn(String tableAlias, String columnName, String columnAlias) {
-		columns.add( StringHelper.qualify(tableAlias, columnName) );
+		columns.add( StringUtils.qualify(tableAlias, columnName) );
 		//columns.add(columnName);
 		//aliases.add(tableAlias);
 		columnAliases.add(columnAlias);
@@ -97,7 +97,7 @@ public class SelectFragment {
 	}
 
 	public SelectFragment addFormula(String tableAlias, String formula, String formulaAlias) {
-		columns.add( StringHelper.replace( formula, Template.TEMPLATE, tableAlias ) );
+		columns.add( StringUtils.replace( formula, Template.TEMPLATE, tableAlias ) );
 		columnAliases.add(formulaAlias);
 		return this;
 	}

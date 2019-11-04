@@ -3,7 +3,7 @@ package cn.sexycode.sql.mapping;
 import cn.sexycode.sql.dialect.Dialect;
 import cn.sexycode.sql.model.Identifier;
 import cn.sexycode.sql.type.Mapping;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class Index implements  Exportable, Serializable {
 	public static String buildSqlDropIndexString(
 			String name,
 			String tableName) {
-		return "drop index " + StringHelper.qualify( tableName, name );
+		return "drop index " + StringUtils.qualify( tableName, name );
 	}
 
 	public static String buildSqlCreateIndexString(
@@ -78,7 +78,7 @@ public class Index implements  Exportable, Serializable {
 		StringBuilder buf = new StringBuilder( "create" )
 				.append( unique ? " unique" : "" )
 				.append( " index " )
-				.append( dialect.qualifyIndexName() ? name : StringHelper.unqualify( name ) )
+				.append( dialect.qualifyIndexName() ? name : StringUtils.unqualify( name ) )
 				.append( " on " )
 				.append( tableName )
 				.append( " (" );
@@ -160,7 +160,7 @@ public class Index implements  Exportable, Serializable {
 
 	public void addColumn(Column column, String order) {
 		addColumn( column );
-		if ( StringHelper.isNotEmpty( order ) ) {
+		if ( StringUtils.isNotEmpty( order ) ) {
 			columnOrderMap.put( column, order );
 		}
 	}
@@ -194,6 +194,6 @@ public class Index implements  Exportable, Serializable {
 
 	@Override
 	public String getExportIdentifier() {
-		return StringHelper.qualify( getTable().getName(), "IDX-" + getName() );
+		return StringUtils.qualify( getTable().getName(), "IDX-" + getName() );
 	}
 }

@@ -1,7 +1,7 @@
 package cn.sexycode.sql.mapping;
 
 import cn.sexycode.sql.dialect.Dialect;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,7 +29,7 @@ public class ForeignKey extends Constraint {
 
     public String getExportIdentifier() {
         // NOt sure name is always set.  Might need some implicit naming
-        return StringHelper.qualify(getTable().getName(), "FK-" + getName());
+        return StringUtils.qualify(getTable().getName(), "FK-" + getName());
     }
 
     public void disableCreation() {

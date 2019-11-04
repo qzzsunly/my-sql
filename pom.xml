@@ -9,7 +9,7 @@
         <artifactId>sexycode-parent</artifactId>
         <version>1.0</version>
     </parent>
-    <artifactId>my-sql</artifactId>
+    <artifactId>mysql</artifactId>
     <version>1.1-SNAPSHOT</version>
 
     <name>my-sql</name>

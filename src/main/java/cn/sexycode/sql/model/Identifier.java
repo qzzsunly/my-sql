@@ -1,7 +1,7 @@
 package cn.sexycode.sql.model;
 
 import cn.sexycode.sql.dialect.Dialect;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.Locale;
 
@@ -26,7 +26,7 @@ public class Identifier implements Comparable<Identifier> {
      * @return The identifier form, or {@code null} if text was {@code null}
      */
     public static Identifier toIdentifier(String text) {
-        if (StringHelper.isEmpty(text)) {
+        if (StringUtils.isEmpty(text)) {
             return null;
         }
         final String trimmedText = text.trim();
@@ -52,7 +52,7 @@ public class Identifier implements Comparable<Identifier> {
      * @return The identifier form, or {@code null} if text was {@code null}
      */
     public static Identifier toIdentifier(String text, boolean quote) {
-        if (StringHelper.isEmpty(text)) {
+        if (StringUtils.isEmpty(text)) {
             return null;
         }
         final String trimmedText = text.trim();
@@ -91,7 +91,7 @@ public class Identifier implements Comparable<Identifier> {
      * @param quoted Is this a quoted identifier?
      */
     public Identifier(String text, boolean quoted) {
-        if (StringHelper.isEmpty(text)) {
+        if (StringUtils.isEmpty(text)) {
             throw new IllegalArgumentException("Identifier text cannot be null");
         }
         if (isQuoted(text)) {

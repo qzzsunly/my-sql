@@ -1,7 +1,7 @@
 package cn.sexycode.sql.mapping;
 
 import cn.sexycode.sql.dialect.Dialect;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 /**
  * A join that appears in a translated HQL query
@@ -154,7 +154,7 @@ public class QueryJoinFragment extends JoinFragment {
 	public boolean addCondition(String condition) {
 		// if the condition is not already there...
 		if (
-				!StringHelper.isEmpty( condition ) &&
+				!StringUtils.isEmpty( condition ) &&
 				afterFrom.toString().indexOf( condition.trim() ) < 0 &&
 				afterWhere.toString().indexOf( condition.trim() ) < 0
 		) {

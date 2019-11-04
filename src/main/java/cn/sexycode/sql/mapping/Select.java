@@ -1,7 +1,7 @@
 package cn.sexycode.sql.mapping;
 
 import cn.sexycode.sql.dialect.Dialect;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 /**
  * A simple SQL <tt>SELECT</tt> statement
@@ -30,37 +30,37 @@ public class Select {
 	 */
 	public String toStatementString() {
 		StringBuilder buf = new StringBuilder(guesstimatedBufferSize);
-		if ( StringHelper.isNotEmpty(comment) ) {
+		if ( StringUtils.isNotEmpty(comment) ) {
 			buf.append("/* ").append(comment).append(" */ ");
 		}
 		
 		buf.append("select ").append(selectClause)
 				.append(" from ").append(fromClause);
 		
-		if ( StringHelper.isNotEmpty(outerJoinsAfterFrom) ) {
+		if ( StringUtils.isNotEmpty(outerJoinsAfterFrom) ) {
 			buf.append(outerJoinsAfterFrom);
 		}
 		
-		if ( StringHelper.isNotEmpty(whereClause) || StringHelper.isNotEmpty(outerJoinsAfterWhere) ) {
+		if ( StringUtils.isNotEmpty(whereClause) || StringUtils.isNotEmpty(outerJoinsAfterWhere) ) {
 			buf.append(" where " );
 			// the outerJoinsAfterWhere needs to come before where clause to properly
 			// handle dynamic filters
-			if ( StringHelper.isNotEmpty(outerJoinsAfterWhere) ) {
+			if ( StringUtils.isNotEmpty(outerJoinsAfterWhere) ) {
 				buf.append(outerJoinsAfterWhere);
-				if ( StringHelper.isNotEmpty(whereClause) ) {
+				if ( StringUtils.isNotEmpty(whereClause) ) {
 					buf.append( " and " );
 				}
 			}
-			if ( StringHelper.isNotEmpty( whereClause ) ) {
+			if ( StringUtils.isNotEmpty( whereClause ) ) {
 				buf.append(whereClause);
 			}
 		}
 		
-		if ( StringHelper.isNotEmpty(groupByClause) ) {
+		if ( StringUtils.isNotEmpty(groupByClause) ) {
 			buf.append(" group by ").append(groupByClause);
 		}
 		
-		if ( StringHelper.isNotEmpty(orderByClause) ) {
+		if ( StringUtils.isNotEmpty(orderByClause) ) {
 			buf.append(" order by ").append(orderByClause);
 		}
 		

@@ -1,7 +1,7 @@
 package cn.sexycode.sql.mapping;
 
 import cn.sexycode.sql.dialect.Dialect;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.Iterator;
 
@@ -77,6 +77,6 @@ public class PrimaryKey extends Constraint {
     }
 
     public String getExportIdentifier() {
-        return StringHelper.qualify(getTable().getName(), "PK-" + getName());
+        return StringUtils.qualify(getTable().getName(), "PK-" + getName());
     }
 }

@@ -1,6 +1,6 @@
 package cn.sexycode.sql.mapping;
 
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 /**
  * An abstract SQL join fragment renderer
@@ -162,7 +162,7 @@ public abstract class JoinFragment {
 	 * @return Returns true if the condition was added, false if the condition was already in 'on' string.
 	 */
 	protected boolean addCondition(StringBuilder buffer, String on) {
-		if ( StringHelper.isNotEmpty( on ) ) {
+		if ( StringUtils.isNotEmpty( on ) ) {
 			if ( !on.startsWith( " and" ) ) {
 				buffer.append( " and " );
 			}

@@ -13,7 +13,7 @@ import cn.sexycode.sql.type.StandardBasicTypes;
 import cn.sexycode.sql.type.descriptor.sql.ClobTypeDescriptor;
 import cn.sexycode.sql.type.descriptor.sql.SqlTypeDescriptor;
 import cn.sexycode.util.core.object.ReflectHelper;
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -1520,13 +1520,13 @@ public abstract class AbstractDialect implements Dialect {
         res.append(" add constraint ")
                 .append(quote(constraintName))
                 .append(" foreign key (")
-                .append(StringHelper.join(", ", foreignKey))
+                .append(StringUtils.join(", ", foreignKey))
                 .append(") references ")
                 .append(referencedTable);
 
         if (!referencesPrimaryKey) {
             res.append(" (")
-                    .append(StringHelper.join(", ", primaryKey))
+                    .append(StringUtils.join(", ", primaryKey))
                     .append(')');
         }
 

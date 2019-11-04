@@ -1,7 +1,7 @@
 package cn.sexycode.sql.dialect;
 
 
-import cn.sexycode.util.core.str.StringHelper;
+import cn.sexycode.util.core.str.StringUtils;
 
 import java.util.Map;
 
@@ -34,7 +34,7 @@ public class DialectFactoryImpl implements DialectFactory {
             // the referenced value is not null
             if (dialectReference instanceof String) {
                 // if it is a String, it might still be empty though...
-                return StringHelper.isEmpty((String) dialectReference);
+                return StringUtils.isEmpty((String) dialectReference);
             }
             return false;
         }
