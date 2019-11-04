@@ -10,7 +10,7 @@
         <version>1.0</version>
     </parent>
     <artifactId>my-sql</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <name>my-sql</name>
     <url>http://my-sql.sexycode.cn</url>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>cn.sexycode</groupId>
             <artifactId>solo-util-core</artifactId>
-            <version>1.0</version>
+            <version>1.3-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
