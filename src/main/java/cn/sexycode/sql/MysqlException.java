@@ -1,12 +1,13 @@
 package cn.sexycode.sql;
 
+
 public class MysqlException extends RuntimeException {
 
         /** 
          * Constructs a new <code>PersistenceException</code> exception 
          * with <code>null</code> as its detail message.
          */
-        public MysqlException() {
+	public MysqlException() {
 		super();
 	}
 
@@ -15,7 +16,7 @@ public class MysqlException extends RuntimeException {
          * with the specified detail message.
          * @param   message   the detail message.
          */
-        public MysqlException(String message) {
+	public MysqlException(String message) {
 		super(message);
 	}
 
@@ -25,7 +26,7 @@ public class MysqlException extends RuntimeException {
          * @param   message   the detail message.
          * @param   cause     the cause.
          */
-        public MysqlException(String message, Throwable cause) {
+	public MysqlException(String message, Throwable cause) {
 		super(message, cause);
 	}
 	
@@ -34,7 +35,7 @@ public class MysqlException extends RuntimeException {
          * with the specified cause.
          * @param   cause     the cause.
          */
-        public MysqlException(Throwable cause) {
+	public MysqlException(Throwable cause) {
 		super(cause);
 	}
 }

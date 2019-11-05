@@ -1,6 +1,6 @@
 package cn.sexycode.sql.mapping;
 
-import cn.sexycode.sql.MySqlException;
+import cn.sexycode.sql.MysqlException;
 
 /**
  */
@@ -35,7 +35,7 @@ public enum JoinType {
 			case 4:
 				return FULL_JOIN;
 			default:
-				throw new MySqlException( "unknown join type: " + joinType );
+                throw new MysqlException("unknown join type: " + joinType);
 		}
 	}
 }

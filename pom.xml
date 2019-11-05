@@ -37,7 +37,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.sexycode</groupId>
-            <artifactId>solo-util-core</artifactId>
+            <artifactId>solo-core</artifactId>
             <version>1.3-SNAPSHOT</version>
         </dependency>
         <dependency>

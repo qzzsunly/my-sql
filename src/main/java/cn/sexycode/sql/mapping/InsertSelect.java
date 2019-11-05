@@ -1,6 +1,6 @@
 package cn.sexycode.sql.mapping;
 
-import cn.sexycode.sql.MySqlException;
+import cn.sexycode.sql.MysqlException;
 import cn.sexycode.sql.dialect.Dialect;
 
 import java.util.ArrayList;
@@ -51,10 +51,10 @@ public class InsertSelect {
 
 	public String toStatementString() {
 		if ( tableName == null ) {
-			throw new MySqlException( "no table name defined for insert-select" );
+            throw new MysqlException("no table name defined for insert-select");
 		}
 		if ( select == null ) {
-			throw new MySqlException( "no select defined for insert-select" );
+            throw new MysqlException("no select defined for insert-select");
 		}
 
 		StringBuilder buf = new StringBuilder( (columnNames.size() * 15) + tableName.length() + 10 );

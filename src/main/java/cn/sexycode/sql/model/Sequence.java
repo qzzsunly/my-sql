@@ -1,6 +1,6 @@
 package cn.sexycode.sql.model;
 
-import cn.sexycode.sql.MySqlException;
+import cn.sexycode.sql.MysqlException;
 import cn.sexycode.sql.mapping.Exportable;
 
 /**
@@ -57,7 +57,7 @@ public class Sequence implements Exportable {
 
 	public void validate(int initialValue, int incrementSize) {
 		if ( this.initialValue != initialValue ) {
-			throw new MySqlException(
+            throw new MysqlException(
 					String.format(
 							"Multiple references to database sequence [%s] were encountered attempting to " +
 									"set conflicting values for 'initial value'.  Found [%s] and [%s]",
@@ -68,7 +68,7 @@ public class Sequence implements Exportable {
 			);
 		}
 		if ( this.incrementSize != incrementSize ) {
-			throw new MySqlException(
+            throw new MysqlException(
 					String.format(
 							"Multiple references to database sequence [%s] were encountered attempting to " +
 									"set conflicting values for 'increment size'.  Found [%s] and [%s]",

@@ -1,6 +1,6 @@
 package cn.sexycode.sql.mapping.ordering.antlr;
 
-import cn.sexycode.sql.MySqlException;
+import cn.sexycode.sql.MysqlException;
 
 /**
  * Contract for mapping a (an assumed) property reference to its columns.
@@ -15,8 +15,8 @@ public interface ColumnMapper {
 	 * @return References to the columns/formulas that define the value mapping for the given property, or null
 	 * if the property reference is unknown.
 	 *
-	 * @throws MySqlException Generally indicates that the property reference is unknown; interpretation
+     * @throws MysqlException Generally indicates that the property reference is unknown; interpretation
 	 * should be the same as a null return.
 	 */
-	public SqlValueReference[] map(String reference) throws MySqlException;
+    public SqlValueReference[] map(String reference) throws MysqlException;
 }

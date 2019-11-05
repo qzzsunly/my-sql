@@ -1,6 +1,6 @@
 package cn.sexycode.sql.model;
 
-import cn.sexycode.sql.MySqlException;
+import cn.sexycode.sql.MysqlException;
 
 import java.util.Objects;
 
@@ -137,7 +137,7 @@ public class QualifiedNameParser {
 			name = tokens[2];
 		}
 		else {
-			throw new MySqlException( "Unable to parse object name: " + text );
+            throw new MysqlException("Unable to parse object name: " + text);
 		}
 
 		nameWasQuoted = Identifier.isQuoted( name );

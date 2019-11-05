@@ -1,15 +1,15 @@
 package cn.sexycode.sql.model;
 
-import cn.sexycode.sql.MySqlException;
+import cn.sexycode.sql.MysqlException;
 import cn.sexycode.sql.dialect.Dialect;
-import cn.sexycode.sql.dialect.function.SQLFunction;
 import cn.sexycode.sql.mapping.ordering.antlr.ColumnMapper;
 import cn.sexycode.sql.mapping.ordering.antlr.OrderByAliasResolver;
-import cn.sexycode.sql.mapping.ordering.antlr.OrderByTranslation;
 import cn.sexycode.sql.mapping.ordering.antlr.SqlValueReference;
-import cn.sexycode.util.core.str.StringUtils;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * Parses SQL fragments specified in mapping documents
@@ -560,7 +560,7 @@ public final class Template {
 			}
 			else {
 				if ( size < 1 || size > 4 ) {
-					throw new MySqlException( "Unexpected number of trim function operands : " + size );
+                    throw new MysqlException("Unexpected number of trim function operands : " + size);
 				}
 
 				// trim-source will always be the last operand
@@ -568,7 +568,7 @@ public final class Template {
 
 				// ANSI SQL says that more than one operand means that the FROM is required
 				if ( ! "from".equals( operands.get( size - 2 ) ) ) {
-					throw new MySqlException( "Expecting FROM, found : " + operands.get( size - 2 ) );
+                    throw new MysqlException("Expecting FROM, found : " + operands.get(size - 2));
 				}
 				from = operands.get( size - 2 );
 
