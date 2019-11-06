@@ -1,7 +1,5 @@
 package cn.sexycode.sql;
 
-import cn.sexycode.sql.dialect.Dialect;
-
 import java.util.Properties;
 
 /**
@@ -23,5 +21,4 @@ public interface Environment {
      */
     Properties getProperties();
 
-    Dialect getDialect();
 }

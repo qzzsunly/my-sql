@@ -1,9 +1,8 @@
 package cn.sexycode.sql.dialect;
 
-
+import cn.sexycode.sql.MysqlException;
+import cn.sexycode.util.core.factory.selector.StrategySelector;
 import cn.sexycode.util.core.str.StringUtils;
-
-import java.util.Map;
 
 /**
  * Standard implementation of the {@link DialectFactory} service.
@@ -12,6 +11,12 @@ import java.util.Map;
 public class DialectFactoryImpl implements DialectFactory {
     private DialectResolver dialectResolver;
 
+    private StrategySelector strategySelector;
+
+    public DialectFactoryImpl(DialectResolver dialectResolver, StrategySelector strategySelector) {
+        this.dialectResolver = dialectResolver;
+        this.strategySelector = strategySelector;
+    }
 
     /**
      * Intended only for use from testing.
@@ -23,11 +28,28 @@ public class DialectFactoryImpl implements DialectFactory {
     }
 
     @Override
-    public Dialect buildDialect(Map configValues, DialectResolutionInfoSource resolutionInfoSource) {
+    public Dialect buildDialect(String dialect, DialectResolutionInfoSource resolutionInfoSource) {
+        if (!isEmpty(dialect)) {
+            return constructDialect(dialect);
+        }
         return determineDialect(resolutionInfoSource);
 
     }
 
+    private Dialect constructDialect(Object dialectReference) {
+        final Dialect dialect;
+        try {
+            dialect = strategySelector.resolveStrategy(Dialect.class, dialectReference);
+            if (dialect == null) {
+                throw new MysqlException("Unable to construct requested dialect [" + dialectReference + "]");
+            }
+            return dialect;
+        } catch (MysqlException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new MysqlException("Unable to construct requested dialect [" + dialectReference + "]", e);
+        }
+    }
     @SuppressWarnings("SimplifiableIfStatement")
     private boolean isEmpty(Object dialectReference) {
         if (dialectReference != null) {

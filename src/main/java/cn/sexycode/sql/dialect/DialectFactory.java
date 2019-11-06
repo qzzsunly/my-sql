@@ -1,13 +1,13 @@
 package cn.sexycode.sql.dialect;
 
-import java.util.Map;
+import cn.sexycode.util.core.service.Service;
 
 
 /**
  * A factory for generating Dialect instances.
  *
  */
-public interface DialectFactory {
+public interface DialectFactory extends Service {
     /**
      * Builds an appropriate Dialect instance.
      * <p/>
@@ -22,5 +22,5 @@ public interface DialectFactory {
      *                             explicitly named
      * @return The appropriate dialect instance.
      */
-    Dialect buildDialect(Map configValues, DialectResolutionInfoSource resolutionInfoSource);
+    Dialect buildDialect(String dialect, DialectResolutionInfoSource resolutionInfoSource);
 }

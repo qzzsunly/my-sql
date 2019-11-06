@@ -1,8 +1,8 @@
 package cn.sexycode.sql.model;
 
-import cn.sexycode.sql.Environment;
 import cn.sexycode.sql.dialect.Dialect;
 import cn.sexycode.sql.dialect.H2Dialect;
+import cn.sexycode.sql.jdbc.JdbcEnvironment;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -13,13 +13,13 @@ import java.util.TreeMap;
 public class Database {
     private final Dialect dialect;
 
-    private final Environment environment;
+    private final JdbcEnvironment environment;
 
     private Namespace implicitNamespace;
 
     private final Map<Namespace.Name, Namespace> namespaceMap = new TreeMap<Namespace.Name, Namespace>();
 
-    public Database(Environment jdbcEnvironment) {
+    public Database(JdbcEnvironment jdbcEnvironment) {
 
         this.environment = jdbcEnvironment;
         this.dialect = determineDialect(jdbcEnvironment);
@@ -32,7 +32,7 @@ public class Database {
 		);*/
     }
 
-    private static Dialect determineDialect(Environment jdbcEnvironment) {
+    private static Dialect determineDialect(JdbcEnvironment jdbcEnvironment) {
         if (jdbcEnvironment != null) {
             final Dialect dialect = jdbcEnvironment.getDialect();
             if (dialect != null) {
@@ -55,7 +55,7 @@ public class Database {
         return dialect;
     }
 
-    public Environment getEnvironment() {
+    public JdbcEnvironment getEnvironment() {
         return environment;
     }
 
