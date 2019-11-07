@@ -28,6 +28,8 @@ public interface Dialect {
      */
     String CLOSED_QUOTE = "`\"]";
 
+    String getAlias();
+
     String toBooleanValueString(Boolean value);
 
     Map<? extends String, ? extends SQLFunction> getFunctions();

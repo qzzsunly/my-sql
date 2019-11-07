@@ -219,6 +219,11 @@ public class H2Dialect extends AbstractDialect {
     }
 
     @Override
+    public String getAlias() {
+        return "h2";
+    }
+
+    @Override
     public boolean supportsIfExistsBeforeConstraintName() {
         return true;
     }

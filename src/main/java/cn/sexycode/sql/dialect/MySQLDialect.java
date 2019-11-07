@@ -316,6 +316,11 @@ public class MySQLDialect extends AbstractDialect {
     }
 
     @Override
+    public String getAlias() {
+        return "mysql5";
+    }
+
+    @Override
     public String toBooleanValueString(Boolean value) {
         return null;
     }
