@@ -125,6 +125,10 @@ public abstract class CollectionType extends AbstractType implements Association
     }
 
     @Override
+    public boolean isCollectionType() {
+        return true;
+    }
+    @Override
     public ForeignKeyDirection getForeignKeyDirection() {
         return ForeignKeyDirection.TO_PARENT;
     }

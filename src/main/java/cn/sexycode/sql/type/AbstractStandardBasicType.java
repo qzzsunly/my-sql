@@ -137,6 +137,10 @@ public abstract class AbstractStandardBasicType<T>
 
 
     @Override
+    public final boolean isCollectionType() {
+        return false;
+    }
+    @Override
     public final boolean isComponentType() {
         return false;
     }

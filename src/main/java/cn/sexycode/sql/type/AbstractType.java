@@ -18,6 +18,10 @@ public abstract class AbstractType implements Type {
     }
 
     @Override
+    public boolean isCollectionType() {
+        return false;
+    }
+    @Override
     public boolean isComponentType() {
         return false;
     }

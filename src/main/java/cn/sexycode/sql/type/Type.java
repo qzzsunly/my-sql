@@ -34,6 +34,16 @@ public interface Type extends Serializable {
 
 
     /**
+     * Return true if the implementation is castable to {@link CollectionType}. Essentially a polymorphic version of
+     * {@code (type instanceof CollectionType.class)}
+     * <p/>
+     * A {@link CollectionType} is additionally an {@link AssociationType}; so if this method returns true,
+     * {@link #isAssociationType()} should also return true.
+     *
+     * @return True if this type is also a {@link CollectionType} implementor; false otherwise.
+     */
+    boolean isCollectionType();
+    /**
      * Return true if the implementation is castable to {@link EntityType}. Essentially a polymorphic
      * version of {@code (type instanceof EntityType.class)}.
      * <p/>
