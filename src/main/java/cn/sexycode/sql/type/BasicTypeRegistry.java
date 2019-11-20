@@ -131,7 +131,7 @@ public class BasicTypeRegistry implements Serializable {
             if (key == null) {
                 continue;
             }
-            LOG.debug("Adding type registration %s -> %s", key, type);
+            LOG.debug("Adding type registration [{}] -> [{}]", key, type);
             final Type old = registry.put(key, type);
             if (old != null && old != type) {
             }
